@@ -1,15 +1,20 @@
 package davenkin.springboot.web.template.helloworld;
 
-import java.util.Map;
-
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-public class HelloWorldController {
+import java.util.Map;
 
-  @GetMapping(value = "/hello-world")
-  public Map<String, String> helloWorld() {
-    return Map.of("value", "Hello World!");
-  }
+@Slf4j
+@RestController
+@RequiredArgsConstructor
+public class HelloWorldController {
+    private final HelloService helloService;
+
+    @GetMapping(value = "/hello-world")
+    public Map<String, String> helloWorld() {
+        return Map.of("value", this.helloService.sayHello());
+    }
 }
