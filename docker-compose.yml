@@ -1,0 +1,21 @@
+version: "2"
+services:
+  redis:
+    restart: always
+    container_name: springboot-redis-learning-redis
+    image: redis:6.0
+    networks:
+      - springboot-redis-learning-redis-net
+    volumes:
+      - springboot-redis-learning-redis-data:/data
+    ports:
+      - "6380:6379"
+    command: redis-server
+
+networks:
+  springboot-redis-learning-redis-net:
+    driver: bridge
+
+volumes:
+  springboot-redis-learning-redis-data:
+    driver: local
