@@ -13,8 +13,8 @@ import org.springframework.stereotype.Service;
 public class HelloService {
 
   @Cacheable(value = REDIS_LEARNING_CACHE)
-  public String sayHello() {
+  public Person sayHello() {
     log.info("This is not called by cache.");
-    return "hello";
+    return new Person("tom", "street");
   }
 }

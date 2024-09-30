@@ -15,6 +15,6 @@ public class HelloWorldController {
 
   @GetMapping(value = "/hello-world")
   public Map<String, String> helloWorld() {
-    return Map.of("value", this.helloService.sayHello());
+    return Map.of("value", this.helloService.sayHello().name);
   }
 }
