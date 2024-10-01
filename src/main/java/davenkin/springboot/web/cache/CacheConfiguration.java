@@ -30,7 +30,7 @@ public class CacheConfiguration {
                 PROPERTY);
         GenericJackson2JsonRedisSerializer defaultSerializer = new GenericJackson2JsonRedisSerializer(cacheObjectMapper);
 
-        //I would rather create Jackson2JsonRedisSerializer for each cached model to make our own model's freedom
+        //I would rather create Jackson2JsonRedisSerializer for each cached model to ensure our own model's freedom
         Jackson2JsonRedisSerializer<Employee> employeeJackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(cacheObjectMapper, Employee.class);
         Jackson2JsonRedisSerializer<Department> departmentJackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(cacheObjectMapper, Department.class);
 
