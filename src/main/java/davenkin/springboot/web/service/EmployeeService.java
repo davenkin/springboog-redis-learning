@@ -28,7 +28,7 @@ public class EmployeeService {
     }
 
     @Cacheable(value = EMPLOYEE_CACHE, key = "#id")
-    public Employee getDepartment(String id) {
+    public Employee getEmployee(String id) {
         this.retrievedFromDB = true;
         return this.departments.get(id);
     }

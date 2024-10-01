@@ -18,11 +18,11 @@ class RedisCacheTest {
     public void should_cache_employee_using_jackson() {
         Employee employee = new Employee("123", "finance");
         this.employeeService.save(employee);
-        this.employeeService.getDepartment("123");
+        this.employeeService.getEmployee("123");
         assertTrue(this.employeeService.isRetrievedFromDB());
 
         employeeService.resetRetrievedFromDB();
-        Employee dbEmployee = employeeService.getDepartment("123");
+        Employee dbEmployee = employeeService.getEmployee("123");
         assertFalse(employeeService.isRetrievedFromDB());
         assertEquals(employee.getName(), dbEmployee.getName());
     }
